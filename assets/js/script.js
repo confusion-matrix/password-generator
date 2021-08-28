@@ -29,6 +29,7 @@ function randomFunc(criteriaArray) {
     if (criteriaArray[3])
         charList = charList.concat(special);
     var charArray = charList.split("");
+    // Build password
     for (var i = 0; i < parseInt(criteriaArray[4]); i++)
         password = password.concat(charArray[Math.floor(Math.random() * charArray.length)]);
     return password;
@@ -43,11 +44,14 @@ function generatePassword(event) {
         document.querySelector("#special").checked,
         document.querySelector("#size").value];
     var size = parseInt(criteriaArray[4]);
+    // Accept or reject user inputs
     if (criteriaArray.includes(true) && (size >= 8 && size <= 128)) {
         document.getElementById("criteria").style.display="none";
         var password = randomFunc(criteriaArray);
         writePassword(password);
-        document.getElementById("form1").reset();        
+        document.getElementById("form1").reset();
+        document.getElementById("errorCheckBox").style.display="none";
+        document.getElementById("errorSize").style.display="none";
     } else {
         if (!criteriaArray.includes(true))
             document.getElementById("errorCheckBox").style.display="block";

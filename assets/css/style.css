@@ -118,6 +118,7 @@ button[disabled] {
   overflow: hidden;
 }
 
+/* CSS for user form */
 #criteria {
     display: none;
     position: absolute;
@@ -131,6 +132,7 @@ button[disabled] {
     padding: 30px;
 }
 
+/* CSS for error messages */
 #errorCheckBox {
     display: none;
     color: red;
