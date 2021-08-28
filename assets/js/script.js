@@ -37,6 +37,9 @@ function randomFunc(criteriaArray) {
 // Generate password
 function generatePassword(event) {
     event.preventDefault();
+    // Reset errors
+    document.getElementById("errorCheckBox").style.display="none";
+    document.getElementById("errorSize").style.display="none";
 
     var criteriaArray = [document.querySelector("#upperCase").checked,
         document.querySelector("#lowerCase").checked, 
@@ -50,8 +53,6 @@ function generatePassword(event) {
         var password = randomFunc(criteriaArray);
         writePassword(password);
         document.getElementById("form1").reset();
-        document.getElementById("errorCheckBox").style.display="none";
-        document.getElementById("errorSize").style.display="none";
     } else {
         if (!criteriaArray.includes(true))
             document.getElementById("errorCheckBox").style.display="block";
